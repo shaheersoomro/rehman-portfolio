@@ -165,39 +165,39 @@ body {
     border-radius: 0px 0px 24px 24px;
 }
 
-.hero-user-social-wrap > span {
+.hero-user-social-wrap>span {
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 800;
 }
 
-.hero-social-links > a {
-  display: inline-flex;
-  font-size: 1.125rem;
-  height: 2.8125rem;
-  width: 2.8125rem;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid #ffffff;
-  color: #ffffff;
-  text-decoration: none;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  position: relative;
-  z-index: 1;
+.hero-social-links>a {
+    display: inline-flex;
+    font-size: 1.125rem;
+    height: 2.8125rem;
+    width: 2.8125rem;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
 }
 
 
 
 
-.hero-social-links > a:hover,
-.hero-social-links > a:focus {
-  border-color: #131313;
-  background-color: #131313;
+.hero-social-links>a:hover,
+.hero-social-links>a:focus {
+    border-color: #131313;
+    background-color: #131313;
 }
 
-.hero-user-social-wrap > span {
-    
+.hero-user-social-wrap>span {
+
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 800;
@@ -209,6 +209,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -216,9 +217,12 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-20px);
     }
@@ -229,6 +233,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -302,7 +307,7 @@ section {
     border-radius: 2px;
 }
 
-.fun-fact-boxes{
+.fun-fact-boxes {
     max-width: calc(100% - 1.25rem);
     border-radius: 1rem;
     border: 1px solid #535353;
@@ -311,14 +316,14 @@ section {
 
 .fun-fact-box {
     padding: 1.875rem 2.5rem;
-    gap: 5px;   
+    gap: 5px;
 }
 
-.fun-fact-boxes > div.row > div:not(:first-child) {
+.fun-fact-boxes>div.row>div:not(:first-child) {
     border-left: 1px solid #535353;
 }
 
-.fun-fact-boxes span{
+.fun-fact-boxes span {
     color: var(--accent-color);
 }
 
@@ -579,6 +584,7 @@ section {
     from {
         width: 0;
     }
+
     to {
         width: var(--width);
     }
@@ -824,4 +830,3 @@ footer {
 .mrg {
     margin: 0;
 }
-
