@@ -4,42 +4,79 @@ const portfolioProjects = [
         title: "E-Commerce Platform",
         description: "A full-stack e-commerce solution with product catalog, shopping cart, and payment integration.",
         tags: ["React", "Flask", "PostgreSQL", "Stripe"],
-        icon: "🛒"
+        image: "images/e-commerce.webp"
     },
     {
         title: "Task Management App",
         description: "A responsive web app for managing tasks and projects with real-time collaboration features.",
         tags: ["Bootstrap", "JavaScript", "Flask", "WebSocket"],
-        icon: "✓"
+        image: "images/task-management-app.webp"
     },
     {
         title: "Social Media Dashboard",
         description: "Analytics dashboard for monitoring social media metrics across multiple platforms.",
         tags: ["React", "Chart.js", "Flask", "APIs"],
-        icon: "📊"
+        image: "images/social-media-app.webp"
     },
     {
         title: "Mobile Fitness App",
         description: "Cross-platform fitness tracking app with workout plans, progress tracking, and community features.",
         tags: ["React Native", "Firebase", "Node.js"],
-        icon: "💪"
+        image: "images/fitness-app.webp"
     },
     {
         title: "Weather Application",
         description: "Real-time weather app with location-based forecasts and interactive weather maps.",
         tags: ["JavaScript", "Weather API", "Bootstrap"],
-        icon: "🌤️"
+        image: "images/weather-app.webp"
     },
     {
         title: "Portfolio Website",
         description: "Modern, responsive portfolio website showcasing projects and skills with smooth animations.",
         tags: ["Bootstrap", "JavaScript", "Responsive"],
-        icon: "🎨"
+        image: "images/portfolio.webp"
     }
 ];
 
+// Skills Data Categorized
+const skillsData = {
+    frontend: [
+        { name: "HTML5", icon: "fab fa-html5", percentage: 95 },
+        { name: "CSS3", icon: "fab fa-css3-alt", percentage: 90 },
+        { name: "JavaScript", icon: "fab fa-js-square", percentage: 92 },
+        { name: "Bootstrap", icon: "fab fa-bootstrap", percentage: 95 },
+        { name: "React", icon: "fab fa-react", percentage: 88 },
+        { name: "Responsive Design", icon: "fas fa-mobile-alt", percentage: 93 }
+    ],
+    backend: [
+        { name: "Python", icon: "fab fa-python", percentage: 85 },
+        { name: "Flask", icon: "fas fa-server", percentage: 87 },
+        { name: "REST APIs", icon: "fas fa-code", percentage: 86 },
+        { name: "SQL", icon: "fas fa-database", percentage: 83 },
+        { name: "Database Design", icon: "fas fa-sitemap", percentage: 82 },
+        { name: "Authentication", icon: "fas fa-lock", percentage: 84 }
+    ],
+    mobile: [
+        { name: "React Native", icon: "fab fa-react", percentage: 80 },
+        { name: "Flutter", icon: "fas fa-mobile-alt", percentage: 78 },
+        { name: "Cross-Platform", icon: "fas fa-layer-group", percentage: 82 },
+        { name: "Mobile UI/UX", icon: "fas fa-paint-brush", percentage: 85 }
+    ],
+    tools: [
+        { name: "Git & GitHub", icon: "fab fa-git-alt", percentage: 90 },
+        { name: "VS Code", icon: "fas fa-code", percentage: 92 },
+        { name: "Docker", icon: "fab fa-docker", percentage: 75 },
+        { name: "Linux", icon: "fab fa-linux", percentage: 80 },
+        { name: "Figma", icon: "fas fa-design", percentage: 78 },
+        { name: "DevTools", icon: "fas fa-tools", percentage: 88 }
+    ]
+};
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
+    // Render categorized skill cards
+    renderCategorizedSkills();
+    
     // Render portfolio cards
     renderPortfolioCards();
     
@@ -56,6 +93,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Render Categorized Skill Cards with Icons and Progress Bars
+function renderCategorizedSkills() {
+    renderSkillCategory('frontendSkills', skillsData.frontend);
+    renderSkillCategory('backendSkills', skillsData.backend);
+    renderSkillCategory('mobileSkills', skillsData.mobile);
+    renderSkillCategory('toolsSkills', skillsData.tools);
+}
+
+function renderSkillCategory(containerId, skills) {
+    const container = document.getElementById(containerId);
+    
+    skills.forEach((skill, index) => {
+        const col = document.createElement('div');
+        col.className = 'col-lg-3 col-md-6 mb-4';
+        col.style.animation = `slideInUp 0.6s ease-out ${index * 0.05}s both`;
+        
+        col.innerHTML = `
+            <div class="skill-card">
+                <div class="skill-card-header">
+                    <div class="skill-icon">
+                        <i class="${skill.icon}"></i>
+                    </div>
+                    <h5 class="skill-card-title">${skill.name}</h5>
+                </div>
+                <div class="skill-bar-wrapper">
+                    <div class="skill-bar-header">
+                        <span class="skill-name">Proficiency</span>
+                        <span class="skill-percentage">${skill.percentage}%</span>
+                    </div>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" style="--width: ${skill.percentage}%; width: ${skill.percentage}%;"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        container.appendChild(col);
+    });
+}
+
 // Render Portfolio Cards
 function renderPortfolioCards() {
     const container = document.getElementById('portfolioContainer');
@@ -71,7 +148,7 @@ function renderPortfolioCards() {
         
         card.innerHTML = `
             <div class="portfolio-card">
-                <div class="portfolio-image">${project.icon}</div>
+                <div class="portfolio-image"><img src="${project.image}" style="width:100%"></div>
                 <div class="portfolio-content">
                     <h5 class="portfolio-title">${project.title}</h5>
                     <p class="portfolio-description">${project.description}</p>
